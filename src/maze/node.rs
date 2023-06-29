@@ -1,8 +1,29 @@
 /// This module is maze node
+// 开口方向
+enum Connect {
+    null,
+    up,
+    down,
+    right,
+    left,
+    up_right,
+    up_down,
+    up_left,
+    right_down,
+    right_left,
+    down_left,
+    up_right_down,
+    up_right_left,
+    up_down_left,
+    right_down_left,
+    up_right_down_left,
+}
+
+// 节点位置以及开口方向
 pub struct Node {
     column: i16,
     row: i16,
-    connects: Vec<Box<Node>>,
+    connect: Connect,
     visit: bool,
     steps: u32,
 }
@@ -12,8 +33,9 @@ impl Node {
         Node {
             column: column,
             row: row,
-            connects: Vec<Box<Node>>{},
+            connect: null,
             visit: false,
+            steps: 0,
         }
     }
 
@@ -23,9 +45,5 @@ impl Node {
 
     pub fn hasVisited(self) -> bool {
         return self.visit;
-    }
-
-    pub fn connects(self, cell: Box<Node>) {
-        self.connects.append(cell);
     }
 }
