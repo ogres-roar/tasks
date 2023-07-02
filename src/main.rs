@@ -1,6 +1,15 @@
+mod maze;
+
+use maze::dice;
+
 fn main() {
     let length = 1;
-    let mut row = String::from("\u{00250C}");
+
+    let mut row = String::from("\u{2575}\u{2576}\u{2577}\u{2574}");
+    println!("{}", row);
+
+    row = String::from("\u{250C}");
+    println!("{}", row);
     for _ in 0..length {
         row += "\u{002500}\u{002500}\u{002500}\u{00252C}";
     }
@@ -30,4 +39,9 @@ fn main() {
     row2 += "\u{002500}\u{002500}\u{002500}\u{002518}";
     println!("{}", row1);
     println!("{}", row2);
+
+    println!("{}", dice::get_uniform(2, 6));
+    println!("{}", dice::get_norm(15, 3.0, 10.0));
+
+    let _maze = maze::Maze::generate(20, 20);
 }
