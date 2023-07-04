@@ -72,6 +72,8 @@ impl Node {
         let mut stack: Vec<(usize, usize)> = vec![];
         let neighbers = Self::get_neighbers(0, 0, nodes);
         nodes[0][0].connect = (true, false, false, true);
+        nodes[0][0].steps = 0;
+
         let choice = get_uniform(seed, neighbers.len() as u64);
         seed = generate_seed(seed);
         let neighber = neighbers[choice as usize];
@@ -80,6 +82,8 @@ impl Node {
             &mut nodes[neighber.0 as usize][neighber.1 as usize],
             (0 - neighber.0, 0 - neighber.1),
         );
+        nodes[neighber.0 as usize][neighber.1 as usize].steps = 1;
+
         stack.push((0, 0));
         stack.push((neighber.0 as usize, neighber.1 as usize));
         while stack.len() != 0 {
@@ -101,6 +105,9 @@ impl Node {
                 (-neighber.0, -neighber.1),
             );
 
+            nodes[(position.0 as i16 + neighber.0) as usize]
+                [(position.1 as i16 + neighber.1) as usize]
+                .steps = nodes[position.0][position.1].steps + 1;
             stack.push(position);
             stack.push((
                 (position.0 as i16 + neighber.0) as usize,
