@@ -156,7 +156,7 @@ impl Node {
             && self.connect.2 == false
             && self.connect.3 == false
         {
-            return String::from("\u{2575}");
+            return String::from("\u{0020}\u{2575}\u{0020}");
         }
 
         if self.connect.0 == false
@@ -164,7 +164,7 @@ impl Node {
             && self.connect.2 == false
             && self.connect.3 == false
         {
-            return String::from("\u{2576}");
+            return String::from("\u{0020}\u{0020}\u{2576}");
         }
 
         if self.connect.0 == false
@@ -172,7 +172,7 @@ impl Node {
             && self.connect.2 == true
             && self.connect.3 == false
         {
-            return String::from("\u{2577}");
+            return String::from("\u{0020}\u{2577}\u{0020}");
         }
 
         if self.connect.0 == false
@@ -180,7 +180,7 @@ impl Node {
             && self.connect.2 == false
             && self.connect.3 == true
         {
-            return String::from("\u{2574}");
+            return String::from("\u{2574}\u{0020}\u{0020}");
         }
 
         if self.connect.0 == true
@@ -188,7 +188,7 @@ impl Node {
             && self.connect.2 == false
             && self.connect.3 == false
         {
-            return String::from("\u{2514}");
+            return String::from("\u{0020}\u{2514}\u{2500}");
         }
 
         if self.connect.0 == true
@@ -196,7 +196,7 @@ impl Node {
             && self.connect.2 == true
             && self.connect.3 == false
         {
-            return String::from("\u{2502}");
+            return String::from("\u{0020}\u{2502}\u{0020}");
         }
 
         if self.connect.0 == true
@@ -204,7 +204,7 @@ impl Node {
             && self.connect.2 == false
             && self.connect.3 == true
         {
-            return String::from("\u{2518}");
+            return String::from("\u{2500}\u{2518}\u{0020}");
         }
 
         if self.connect.0 == false
@@ -212,7 +212,7 @@ impl Node {
             && self.connect.2 == true
             && self.connect.3 == false
         {
-            return String::from("\u{250C}");
+            return String::from("\u{0020}\u{250C}\u{2500}");
         }
 
         if self.connect.0 == false
@@ -220,7 +220,7 @@ impl Node {
             && self.connect.2 == false
             && self.connect.3 == true
         {
-            return String::from("\u{2500}");
+            return String::from("\u{2500}\u{2500}\u{2500}");
         }
 
         if self.connect.0 == false
@@ -228,7 +228,7 @@ impl Node {
             && self.connect.2 == true
             && self.connect.3 == true
         {
-            return String::from("\u{2510}");
+            return String::from("\u{2500}\u{2510}\u{0020}");
         }
 
         if self.connect.0 == true
@@ -236,7 +236,7 @@ impl Node {
             && self.connect.2 == true
             && self.connect.3 == false
         {
-            return String::from("\u{251C}");
+            return String::from("\u{0020}\u{251C}\u{2500}");
         }
 
         if self.connect.0 == true
@@ -244,7 +244,7 @@ impl Node {
             && self.connect.2 == false
             && self.connect.3 == true
         {
-            return String::from("\u{2534}");
+            return String::from("\u{2500}\u{2534}\u{2500}");
         }
 
         if self.connect.0 == true
@@ -252,7 +252,7 @@ impl Node {
             && self.connect.2 == true
             && self.connect.3 == true
         {
-            return String::from("\u{2524}");
+            return String::from("\u{2500}\u{2524}\u{0020}");
         }
 
         if self.connect.0 == false
@@ -260,7 +260,7 @@ impl Node {
             && self.connect.2 == true
             && self.connect.3 == true
         {
-            return String::from("\u{252C}");
+            return String::from("\u{2500}\u{252C}\u{2500}");
         }
 
         if self.connect.0 == true
@@ -268,7 +268,7 @@ impl Node {
             && self.connect.2 == true
             && self.connect.3 == true
         {
-            return String::from("\u{253C}");
+            return String::from("\u{2500}\u{253C}\u{2500}");
         }
 
         panic!("unknow connection type!");
