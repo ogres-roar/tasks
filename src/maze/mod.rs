@@ -2,6 +2,7 @@
 pub mod dice;
 pub mod dice_test;
 pub mod node;
+pub mod node_test;
 
 use node::Node;
 

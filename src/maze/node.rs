@@ -281,3 +281,24 @@ impl Node {
         panic!("unknow connection type!");
     }
 }
+
+#[cfg(test)]
+mod node_test {
+    use super::Node;
+    #[test]
+    fn test_in_maze() {
+        let expects = vec![
+            (0, 0, 4, 4, true),
+            (0, 4, 4, 4, false),
+            (-1, 0, 4, 4, false),
+            (4, 0, 4, 4, false),
+            (0, -1, 4, 4, false),
+        ];
+        for expect in expects {
+            assert_eq!(
+                Node::in_maze(expect.0, expect.1, expect.2, expect.3),
+                expect.4
+            );
+        }
+    }
+}
