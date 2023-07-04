@@ -13,27 +13,24 @@ pub struct Maze {
 }
 
 impl Maze {
-    pub fn generate(row: i16, column: i16) -> Maze {
-        if row <= 0 || column <= 0 {
-            panic!("maze size input negative, row: {}, column: {}", row, column)
-        }
+    pub fn generate(seed: u64, row: i16, column: i16) -> Maze {
         return Maze {
-            nodes: Node::generate_map(row, column),
+            nodes: Node::generate_map(seed, row, column),
             row: row,
             column: column,
         };
     }
 
     #[allow(dead_code)]
-    pub fn render() {
-        // let directions = vec![(-1, 0), (0, -1), (0, 1), (1, 0)];
-    }
-
-    #[allow(dead_code)]
-    fn in_maze(column: i16, row: i16) -> bool {
-        if column >= 0 && row >= 0 {
-            return true;
+    pub fn render(self) -> Vec<String> {
+        let mut rds: Vec<String> = vec![];
+        for rows in self.nodes {
+            let mut line: String = String::from("");
+            for columns in rows {
+                line += columns.get_char().as_str();
+            }
+            rds.push(line);
         }
-        return false;
+        return rds;
     }
 }
